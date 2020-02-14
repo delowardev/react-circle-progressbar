@@ -1,8 +1,3 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import Basic from './components/Basic';
-
-<Meta title="Getting Started" component={Basic}/>
-
 # React Circular Progressbar
 
 A circular progressbar component, built with SVG and extensively customizable
@@ -14,7 +9,7 @@ A circular progressbar component, built with SVG and extensively customizable
 </Preview>
 
 
-# Installation
+## Installation
 
 Install with yarn:
 ```
@@ -25,7 +20,7 @@ or npm:
 npm install --save react-circular-progressbar
 ```
 
-# props
+## props
 
 props description here
 
@@ -48,7 +43,7 @@ props description here
 | bgShadow | Shadow Essential Values | [{...}](#propsbgshadow)  | Object | N/A |
 
 
-# props.gradient
+## props.gradient
 
 props description here
 
@@ -61,7 +56,7 @@ props description here
 | stopColor | Gradient Stop Color | `#ffff00` | String | N/A |
 
 
-# props.shadow
+## props.shadow
 
 props description here
 
@@ -75,7 +70,7 @@ props description here
 | color | Shadow Color | `#000000` | String | 0-1 |
 
 
-# props.bgShadow
+## props.bgShadow
 
 props description here
 
@@ -89,7 +84,7 @@ props description here
 | color | Shadow Color | `#000000` | String | 0-1 |
 
 
-# Default Props
+## Default Props
 
 props description here
 
