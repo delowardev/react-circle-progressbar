@@ -20,9 +20,8 @@ or npm:
 npm install --save react-circular-progressbar
 ```
 
-## props
+## Props
 
-props description here
 
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
@@ -45,8 +44,6 @@ props description here
 
 ## props.gradient
 
-props description here
-
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
 | angle | Gradinet Angle | `0` | Int | 0-360 |
@@ -57,8 +54,6 @@ props description here
 
 
 ## props.shadow
-
-props description here
 
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
@@ -72,8 +67,6 @@ props description here
 
 ## props.bgShadow
 
-props description here
-
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
 | inset | Set Shadow Inset or Outset | `false` | Boolean | N/A |
@@ -85,8 +78,6 @@ props description here
 
 
 ## Default Props
-
-props description here
 
 ```javascript
 
