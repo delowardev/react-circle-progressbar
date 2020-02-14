@@ -88,7 +88,7 @@ props description here
 
 props description here
 
-```
+```javascript
 
 const defaultProps = {
     size: 180,
