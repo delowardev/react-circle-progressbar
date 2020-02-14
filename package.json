@@ -1,9 +1,10 @@
 {
-  "name": "react-circle-progressbar",
-  "version": "0.0.1",
+  "name": "@delowar/react-circle-progressbar",
+  "version": "0.0.5",
   "description": "A circular progressbar component, built with SVG and extensively customizable",
-  "main": "index.js",
+  "main": "./lib/Progress.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,8 +26,23 @@
     "url": "https://github.com/delowardev/react-circle-progressbar/issues"
   },
   "homepage": "https://github.com/delowardev/react-circle-progressbar#readme",
-  "dependencies": {
+  "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.12.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^3.2.1"
   }
 }

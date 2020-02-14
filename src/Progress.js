@@ -49,7 +49,7 @@ const defaultProps = {
 };
 
 
-const Circle = props => {
+const Progress = props => {
     props = { ...defaultProps, ...props }
     props.shadow = { ...props.shadow, ...defaultProps.shadow }
     props.gradient = { ...defaultProps.gradient, ...props.gradient }
@@ -209,15 +209,15 @@ const Circle = props => {
                                 <feDropShadow {...shadowAttr} />
                             </filter>
                         ) : (
-                                <filter  {...shadowAttr}>
-                                    <feOffset dx={feShadowAttr.dx} dy={feShadowAttr.dy} />
-                                    <feGaussianBlur stdDeviation={feShadowAttr.stdDeviation} />
-                                    <feComposite operator="out" in="SourceGraphic" result="inverse" />
-                                    <feFlood flood-color={feShadowAttr.floodColor} flood-opacity={feShadowAttr.floodOpacity} result="color" />
-                                    <feComposite operator="in" in="color" in2="inverse" result="shadow" />
-                                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                                </filter>
-                            )
+                            <filter  {...shadowAttr}>
+                                <feOffset dx={feShadowAttr.dx} dy={feShadowAttr.dy} />
+                                <feGaussianBlur stdDeviation={feShadowAttr.stdDeviation} />
+                                <feComposite operator="out" in="SourceGraphic" result="inverse" />
+                                <feFlood flood-color={feShadowAttr.floodColor} flood-opacity={feShadowAttr.floodOpacity} result="color" />
+                                <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+                                <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+                            </filter>
+                        )
                     )
                 }
 
@@ -229,15 +229,15 @@ const Circle = props => {
                                 <feDropShadow {...feBgShadowAttr} />
                             </filter>
                         ) : (
-                                <filter {...bgShadowAttr}>
-                                    <feOffset dx={feBgShadowAttr.dx} dy={feBgShadowAttr.dy} />
-                                    <feGaussianBlur stdDeviation={feBgShadowAttr.stdDeviation} />
-                                    <feComposite operator="out" in="SourceGraphic" result="inverse" />
-                                    <feFlood floodColor={feBgShadowAttr.floodColor} floodOpacity={feBgShadowAttr.floodOpacity} result="color" />
-                                    <feComposite operator="in" in="color" in2="inverse" result="shadow" />
-                                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                                </filter>
-                            )
+                            <filter {...bgShadowAttr}>
+                                <feOffset dx={feBgShadowAttr.dx} dy={feBgShadowAttr.dy} />
+                                <feGaussianBlur stdDeviation={feBgShadowAttr.stdDeviation} />
+                                <feComposite operator="out" in="SourceGraphic" result="inverse" />
+                                <feFlood floodColor={feBgShadowAttr.floodColor} floodOpacity={feBgShadowAttr.floodOpacity} result="color" />
+                                <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+                                <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+                            </filter>
+                        )
                     )
                 }
 
@@ -249,7 +249,7 @@ const Circle = props => {
     )
 }
 
-Circle.propTypes = {
+Progress.propTypes = {
     size: PropTypes.number,
     strokeWidth: PropTypes.number,
     strokeWidthBg: PropTypes.number,
@@ -258,7 +258,6 @@ Circle.propTypes = {
     background: PropTypes.string,
     className: PropTypes.string,
     percent: PropTypes.number,
-    linecap: PropTypes.string,
     linecap: PropTypes.string,
     isGradient: PropTypes.bool,
     gradient: PropTypes.shape({
@@ -288,4 +287,4 @@ Circle.propTypes = {
     })
 }
 
-export default Circle
+export default Progress
