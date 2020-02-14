@@ -1,13 +1,6 @@
 # React Circular Progressbar
 
-A circular progressbar component, built with SVG and extensively customizable
-
-<Preview>
-  <Story name="Introduction">
-	  <Basic></Basic>
-  </Story>
-</Preview>
-
+Highly customizable & light weight circular progressbar component, built with SVG and extensively customizable
 
 ## Installation
 
@@ -22,6 +15,7 @@ npm install --save react-circular-progressbar
 
 ## Props
 
+Available Props, this package supports 30+ props
 
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
