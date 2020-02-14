@@ -1,0 +1,32 @@
+{
+  "name": "react-circle-progressbar",
+  "version": "0.0.1",
+  "description": "A circular progressbar component, built with SVG and extensively customizable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delowardev/react-circle-progressbar.git"
+  },
+  "keywords": [
+    "progressbar",
+    "react",
+    "react-component",
+    "svg",
+    "react-circle-progress",
+    "circle-progress",
+    "curcular-progress"
+  ],
+  "author": "delowar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/delowardev/react-circle-progressbar/issues"
+  },
+  "homepage": "https://github.com/delowardev/react-circle-progressbar#readme",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0"
+  }
+}
