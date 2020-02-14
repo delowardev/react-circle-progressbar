@@ -4,13 +4,9 @@ Highly customizable & light weight circular progressbar component, built with SV
 
 ## Installation
 
-Install with yarn:
+Install with npm:
 ```
-yarn add react-circular-progressbar
-```
-or npm:
-```
-npm install --save react-circular-progressbar
+npm install --save @delowar/react-circle-progressbar
 ```
 
 ## Props

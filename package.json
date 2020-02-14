@@ -1,6 +1,6 @@
 {
-  "name": "react-circle-progressbar",
-  "version": "0.0.1",
+  "name": "@delowar/react-circle-progressbar",
+  "version": "0.0.2",
   "description": "A circular progressbar component, built with SVG and extensively customizable",
   "main": "index.js",
   "scripts": {
