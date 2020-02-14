@@ -41,11 +41,11 @@ props description here
 | percent | Fill Percent |  `55`  | Int | 100 |
 | linecap | Stroke Line Style |  `round`  | String | N/A |
 | isGradient | Enable/Disable Gradient |  `false`  | Boolean | N/A |
-| gradient | Gradient Essential Values | [{...}](#gradient)  | Object | N/A |
+| gradient | Gradient Essential Values | [{...}](#propsgradient)  | Object | N/A |
 | isShadow | Enable/Disable Circle Shadow |  `false`  | Boolean | N/A |
-| shadow | Shadow Essential Values | [{...}](#shadow)  | Object | N/A |
+| shadow | Shadow Essential Values | [{...}](#propsshadow)  | Object | N/A |
 | isBgShadow | Enable/Disable Circle Background Shadow |  `false`  | Boolean | N/A |
-| bgShadow | Shadow Essential Values | [{...}](#bg_shadow)  | Object | N/A |
+| bgShadow | Shadow Essential Values | [{...}](#propsbgshadow)  | Object | N/A |
 
 
 # props.gradient
