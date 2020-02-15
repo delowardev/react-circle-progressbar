@@ -9,11 +9,11 @@ Highly customizable & lightweight circular progressbar component, built with SVG
 ### Table of contents
 
 * [Installation](#installation)
-* [Usage and Examples](#usage)
+* [Usage and Examples](#usage-and-examples)
 * [Props](#props)
 * [Gradient (props.gradient)](#propsgradient)
 * [Shadow (props.shadow)](#propsshadow)
-* [Default Props](#defaultprops)
+* [Default Props](#default-props)
 
 ## Installation
 
