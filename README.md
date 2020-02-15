@@ -12,7 +12,6 @@ Highly customizable & light weight circular progressbar component, built with SV
 * [Gradient (props.gradient)](#propsgradient)
 * [Shadow (props.shadow)](#propsshadow)
 * [Default Props](#defaultprops)
-* [Examples](#examples)
 
 ## Installation
 
