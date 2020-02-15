@@ -1,12 +1,80 @@
-# React Circular Progressbar
+# React Circle Progressbar
 
 Highly customizable & light weight circular progressbar component, built with SVG and extensively customizable
+
+![React Circle Progressbar](https://i.imgur.com/jrLkr2A.png)
+
+### Table of contents
+
+* [Installation](#installation)
+* [Usage and Examples](#usage)
+* [Props](#props)
+* [Gradient (props.gradient)](#propsgradient)
+* [Shadow (props.shadow)](#propsshadow)
+* [Default Props](#defaultprops)
+* [Examples](#examples)
 
 ## Installation
 
 Install with npm:
 ```
 npm install --save @delowar/react-circle-progressbar
+```
+
+or yarn:
+
+```
+yarn add --save @delowar/react-circle-progressbar
+```
+
+## Usage
+
+```javascript
+import React from 'react';
+import Progress from '@delowar/react-circle-progressbar';
+
+// Basic Usage
+<Progress />
+
+// Default Gradient
+<Progress isGradient />
+
+// Customize Gradient
+<Progress 
+    isGradient 
+    gradient={{
+        angle: 90,
+        start: 0,
+        end: 100,
+        startColor: '#ff0000',
+        stopColor: '#ffff00'
+    }}
+/>
+
+// Shadow
+<Progress
+    isBgShadow 
+    emptyColor="#f7f7f7" 
+    strokeWidth="6"
+    strokeWidthBg="30" 
+/>   
+
+// Customize Shadow
+<Progress
+    isBgShadow 
+    bgShadow: {{
+        inset: true,
+        vertical: 2,
+        horizontal: 2,
+        blur: 4,
+        opacity: .4,
+        color: '#000000'
+    }}
+    emptyColor="#f7f7f7" 
+    strokeWidth="6"
+    strokeWidthBg="30" 
+/>
+
 ```
 
 ## Props
