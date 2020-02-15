@@ -23,7 +23,7 @@ npm install --save @delowar/react-circle-progressbar
 or yarn:
 
 ```
-yarn add --save @delowar/react-circle-progressbar
+yarn add @delowar/react-circle-progressbar
 ```
 
 ## Usage
