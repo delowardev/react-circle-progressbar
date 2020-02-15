@@ -83,16 +83,16 @@ Available Props, this package supports 30+ props
 | strokeWidth | Circle Stroke width |  `15`  | Int | ∞ |
 | strokeWidthBg | Circle Stroke Background width |  `15`  | Int | ∞ |
 | fillColor | Stroke Fill Color |  `#288feb`  | String | N/A |
-| emptyColor | Stroke (empty) Background Fill Color |  `#288feb`  | String | N/A |
+| emptyColor | Stroke (empty) BG Fill Color |  `#288feb`  | String | N/A |
 | background | Circle Background |  `none`  | String | N/A |
 | className | Component Custom Class |  `''`  | String | N/A |
 | percent | Fill Percent |  `55`  | Int | 100 |
 | linecap | Stroke Line Style |  `round`  | String | N/A |
-| isGradient | Enable/Disable Gradient |  `false`  | Boolean | N/A |
+| isGradient | Enable Gradient |  `false`  | Boolean | N/A |
 | gradient | Gradient Essential Values | [{...}](#propsgradient)  | Object | N/A |
-| isShadow | Enable/Disable Circle Shadow |  `false`  | Boolean | N/A |
+| isShadow | Enable Circle Shadow |  `false`  | Boolean | N/A |
 | shadow | Shadow Essential Values | [{...}](#propsshadow)  | Object | N/A |
-| isBgShadow | Enable/Disable Circle Background Shadow |  `false`  | Boolean | N/A |
+| isBgShadow | Enable Circle BG Shadow |  `false`  | Boolean | N/A |
 | bgShadow | Shadow Essential Values | [{...}](#propsbgshadow)  | Object | N/A |
 
 #### Example:
