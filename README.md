@@ -51,13 +51,8 @@ import Progress from '@delowar/react-circle-progressbar';
     }}
 />
 
-// Shadow
-<Progress
-    isBgShadow 
-    emptyColor="#f7f7f7" 
-    strokeWidth="6"
-    strokeWidthBg="30" 
-/>   
+// Default Shadow
+<Progress isBgShadow />   
 
 // Customize Shadow
 <Progress
