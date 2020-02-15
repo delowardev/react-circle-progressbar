@@ -1,8 +1,10 @@
 # React Circle Progressbar
 
-Highly customizable & light weight circular progressbar component, built with SVG and extensively customizable
-
 ![React Circle Progressbar](https://i.imgur.com/jrLkr2A.png)
+
+Highly customizable & lightweight circular progressbar component, built with SVG and extensively customizable.
+
+> Package Size: 10kb
 
 ### Table of contents
 
@@ -93,6 +95,12 @@ Available Props, this package supports 30+ props
 | isBgShadow | Enable/Disable Circle Background Shadow |  `false`  | Boolean | N/A |
 | bgShadow | Shadow Essential Values | [{...}](#propsbgshadow)  | Object | N/A |
 
+#### Example:
+
+```javascript
+<Progress size={20} />
+```
+
 
 ## props.gradient
 
@@ -103,6 +111,21 @@ Available Props, this package supports 30+ props
 | end | Color End to | `100` | Int | 0-100 |
 | startColor | Gradient Start Color | `#ff0000` | String | N/A |
 | stopColor | Gradient Stop Color | `#ffff00` | String | N/A |
+
+#### Example: 
+
+```javascript
+<Progress 
+    isGradient 
+    gradient={{
+        angle: 90,
+        start: 0,
+        end: 100,
+        startColor: '#ff0000',
+        stopColor: '#ffff00'
+    }}
+/>
+```
 
 
 ## props.shadow
@@ -116,6 +139,21 @@ Available Props, this package supports 30+ props
 | opacity | Shadow Opacity | `.4` | Float | 0-1 |
 | color | Shadow Color | `#000000` | String | 0-1 |
 
+#### Example
+
+```javascript
+<Progress
+    isShadow 
+    shadow: {{
+        inset: true,
+        vertical: 2,
+        horizontal: 2,
+        blur: 4,
+        opacity: .4,
+        color: '#000000'
+    }}
+/>
+```
 
 ## props.bgShadow
 
@@ -128,6 +166,21 @@ Available Props, this package supports 30+ props
 | opacity | Shadow Opacity | `.4` | Float | 0-1 |
 | color | Shadow Color | `#000000` | String | 0-1 |
 
+#### Example
+
+```javascript
+<Progress
+    isBgShadow 
+    bgShadow: {{
+        inset: true,
+        vertical: 2,
+        horizontal: 2,
+        blur: 4,
+        opacity: .4,
+        color: '#000000'
+    }}
+/>
+```
 
 ## Default Props
 
