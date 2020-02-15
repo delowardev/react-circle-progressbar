@@ -26,7 +26,7 @@ or yarn:
 yarn add @delowar/react-circle-progressbar
 ```
 
-## Usage
+## Usage and Examples
 
 ```javascript
 import React from 'react';
