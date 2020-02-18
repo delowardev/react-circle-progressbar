@@ -1,3 +1,4 @@
+var webpack = require("webpack");
 var path = require('path');
 
 module.exports = {
@@ -6,8 +7,9 @@ module.exports = {
     output: {
         path: path.resolve('lib'),
         filename: 'Progress.js',
+        library: 'Progress',
         libraryTarget: 'umd',
-        library: 'lib',
+        libraryExport: 'default',
         umdNamedDefine: true,
         globalObject: `(typeof self !== 'undefined' ? self : this)`
     },
@@ -19,5 +21,5 @@ module.exports = {
                 use: 'babel-loader'
             }
         ]
-    }
+    },
 }
