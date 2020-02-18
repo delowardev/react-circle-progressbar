@@ -6,7 +6,10 @@ module.exports = {
     output: {
         path: path.resolve('lib'),
         filename: 'Progress.js',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        library: 'lib',
+        umdNamedDefine: true,
+        globalObject: `(typeof self !== 'undefined' ? self : this)`
     },
     module: {
         rules: [

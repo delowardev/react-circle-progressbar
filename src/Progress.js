@@ -287,4 +287,4 @@ Progress.propTypes = {
     })
 }
 
-export default Progress
+export {Progress as default}
