@@ -6,8 +6,9 @@ module.exports = {
     output: {
         path: path.resolve('lib'),
         filename: 'Progress.js',
+        library: 'Progress',
         libraryTarget: 'umd',
-        library: 'lib',
+        libraryExport: 'default',
         umdNamedDefine: true,
         globalObject: `(typeof self !== 'undefined' ? self : this)`
     },
