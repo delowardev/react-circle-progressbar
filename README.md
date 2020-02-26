@@ -1,6 +1,6 @@
 # React Circle Progressbar
 
-![React Circle Progressbar](https://i.imgur.com/1w5s9Ia.png)
+![React Circle Progressbar](https://i.imgur.com/XaAAox1.jpg)
 ![React Circle Progressbar](https://media.giphy.com/media/KzhnXtVngKQUIdGY5R/giphy.gif)
 
 Highly customizable & lightweight circular progressbar component, built with SVG and extensively customizable.
