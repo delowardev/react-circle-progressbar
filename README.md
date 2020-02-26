@@ -58,7 +58,7 @@ import Progress from '@delowar/react-circle-progressbar';
 // Customize Shadow
 <Progress
     isBgShadow 
-    bgShadow: {{
+    bgShadow={{
         inset: true,
         vertical: 2,
         horizontal: 2,
@@ -89,6 +89,7 @@ Available Props, this package supports 30+ props
 | percent | Fill Percent |  `55`  | Int | 100 |
 | linecap | Stroke Line Style |  `round`  | String | N/A |
 | isGradient | Enable Gradient |  `false`  | Boolean | N/A |
+| transition | Apply transition when percent change |  `200` (ms) | Int | ∞ |
 | gradient | Gradient Essential Values | [{...}](#propsgradient)  | Object | N/A |
 | isShadow | Enable Circle Shadow |  `false`  | Boolean | N/A |
 | shadow | Shadow Essential Values | [{...}](#propsshadow)  | Object | N/A |
@@ -144,7 +145,7 @@ Available Props, this package supports 30+ props
 ```javascript
 <Progress
     isShadow 
-    shadow: {{
+    shadow={{
         inset: true,
         vertical: 2,
         horizontal: 2,
@@ -171,7 +172,7 @@ Available Props, this package supports 30+ props
 ```javascript
 <Progress
     isBgShadow 
-    bgShadow: {{
+    bgShadow={{
         inset: true,
         vertical: 2,
         horizontal: 2,
