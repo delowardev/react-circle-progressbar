@@ -70,7 +70,8 @@ const Progress = props => {
         linecap,
         isBgShadow,
         bgShadow,
-        transition
+        transition,
+        children
     } = props;
 
     const size = parseInt(props.size);
@@ -94,6 +95,36 @@ const Progress = props => {
     const circumference = 2 * Math.PI * circleRadiusFg;
     const offset = circumference - (circumference * percent / 100);
 
+    // wrap attributes
+    let wrapStyle = {
+        height: size,
+        width: size,
+        position: 'relative'
+    };
+
+    const wrapAttr = {
+        className: `circle-progress-wrap ${className}`,
+        style: wrapStyle
+    };
+
+    // child attributes
+
+    let childStyle = {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+
+    const childAttr = {
+        className: `circle-progress-inner`,
+        style: childStyle
+    }
+
     // svg attributes
     const svgAttr = {
         style: {
@@ -102,14 +133,6 @@ const Progress = props => {
         },
         xmlns: 'http://www.w3.org/2000/svg',
         viewBox: `${size / 2} ${size / 2} ${size} ${size}`
-    };
-
-    const wrapAttr = {
-        className: `circle-progress-wrap ${className}`,
-        style: {
-            height: size,
-            width: size
-        }
     };
 
     const circleBgAttr = {
@@ -174,7 +197,6 @@ const Progress = props => {
         floodColor: shadow.color,
         floodOpacity: shadow.opacity
     }
-
 
     const bgShadowAttr = {
         id: uid3,
@@ -246,6 +268,9 @@ const Progress = props => {
                 <circle {...circleBgAttr} />
                 <circle {...circleFgAttr} />
             </svg>
+            {
+                children && <div {...childAttr}><div>{children}</div></div>
+            }
         </div>
     )
 }

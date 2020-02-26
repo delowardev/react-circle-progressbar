@@ -37,6 +37,10 @@ import Progress from '@delowar/react-circle-progressbar';
 // Basic Usage
 <Progress />
 
+// or 
+
+<Progress percent={40}>40%</Progress>
+
 // Default Gradient
 <Progress isGradient />
 
