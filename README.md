@@ -45,8 +45,6 @@ import Progress from '@delowar/react-circle-progressbar';
     isGradient 
     gradient={{
         angle: 90,
-        start: 0,
-        end: 100,
         startColor: '#ff0000',
         stopColor: '#ffff00'
     }}
@@ -67,8 +65,8 @@ import Progress from '@delowar/react-circle-progressbar';
         color: '#000000'
     }}
     emptyColor="#f7f7f7" 
-    strokeWidth="6"
-    strokeWidthBg="30" 
+    borderWidth="6"
+    borderWidthBg="30" 
 />
 
 ```
@@ -80,8 +78,8 @@ Available Props, this package supports 30+ props
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
 | size | Circle height & Width | `180` | Int | ∞ |
-| strokeWidth | Circle Stroke width |  `15`  | Int | ∞ |
-| strokeWidthBg | Circle Stroke Background width |  `15`  | Int | ∞ |
+| borderWidth | Circle Border width |  `15`  | Int | ∞ |
+| borderWidthBg | Circle Border Background width |  `15`  | Int | ∞ |
 | fillColor | Stroke Fill Color |  `#288feb`  | String | N/A |
 | emptyColor | Stroke (empty) BG Fill Color |  `#288feb`  | String | N/A |
 | background | Circle Background |  `none`  | String | N/A |
@@ -108,8 +106,6 @@ Available Props, this package supports 30+ props
 | **Names** | **Description** | **Default Value**  | **Type** | **Range/Max**
 | ------ | ------ | ------ | ------ | ------ |
 | angle | Gradinet Angle | `0` | Int | 0-360 |
-| start | Color Start from | `0` | Int | 0-100 |
-| end | Color End to | `100` | Int | 0-100 |
 | startColor | Gradient Start Color | `#ff0000` | String | N/A |
 | stopColor | Gradient Stop Color | `#ffff00` | String | N/A |
 
@@ -120,8 +116,6 @@ Available Props, this package supports 30+ props
     isGradient 
     gradient={{
         angle: 90,
-        start: 0,
-        end: 100,
         startColor: '#ff0000',
         stopColor: '#ffff00'
     }}
@@ -189,8 +183,8 @@ Available Props, this package supports 30+ props
 
 const defaultProps = {
     size: 180,
-    strokeWidth: 15,
-    strokeWidthBg: 15,
+    borderWidth: 15,
+    borderWidthBg: 15,
     fillColor: '#288feb',
     emptyColor: '#dddddd',
     background: 'none',
@@ -200,8 +194,6 @@ const defaultProps = {
     isGradient: false,
     gradient: {
         angle: 0,
-        start: 0,
-        end: 100,
         startColor: '#ff0000',
         stopColor: '#ffff00',
     },

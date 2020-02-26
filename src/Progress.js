@@ -12,8 +12,8 @@ const uuid = (prefix = '', suffix = '') => {
 
 const defaultProps = {
     size: 180,
-    strokeWidth: 15,
-    strokeWidthBg: 15,
+    borderWidth: 15,
+    borderWidthBg: 15,
     fillColor: '#288feb',
     emptyColor: '#dddddd',
     background: 'none',
@@ -24,8 +24,6 @@ const defaultProps = {
     isGradient: false,
     gradient: {
         angle: 0,
-        start: 0,
-        end: 100,
         startColor: '#ff0000',
         stopColor: '#ffff00',
     },
@@ -77,20 +75,20 @@ const Progress = props => {
 
     const size = parseInt(props.size);
     const percent = parseInt(props.percent);
-    const strokeWidthBg = parseInt(props.strokeWidthBg);
-    const strokeWidth = parseInt(props.strokeWidth);
+    const borderWidthBg = parseInt(props.borderWidthBg);
+    const borderWidth = parseInt(props.borderWidth);
 
 
-    let circleRadiusBg = (size - strokeWidthBg) * .5;
-    let circleRadiusFg = (size - strokeWidth) * .5;
+    let circleRadiusBg = (size - borderWidthBg) * .5;
+    let circleRadiusFg = (size - borderWidth) * .5;
 
 
-    if (strokeWidth > strokeWidthBg) {
-        circleRadiusBg -= (strokeWidth - strokeWidthBg) * .5;
+    if (borderWidth > borderWidthBg) {
+        circleRadiusBg -= (borderWidth - borderWidthBg) * .5;
     }
 
-    if (strokeWidthBg > strokeWidth) {
-        circleRadiusFg -= (strokeWidthBg - strokeWidth) * .5;
+    if (borderWidthBg > borderWidth) {
+        circleRadiusFg -= (borderWidthBg - borderWidth) * .5;
     }
 
     const circumference = 2 * Math.PI * circleRadiusFg;
@@ -119,7 +117,7 @@ const Progress = props => {
         cy: size,
         r: circleRadiusBg,
         stroke: emptyColor,
-        strokeWidth: strokeWidthBg,
+        strokeWidth: borderWidthBg,
         fill: background,
         ...(isBgShadow && { filter: `url(#${uid3})` })
     };
@@ -130,7 +128,7 @@ const Progress = props => {
         cy: size,
         r: circleRadiusFg,
         fill: 'none',
-        strokeWidth: strokeWidth,
+        strokeWidth: borderWidth,
         strokeDasharray: circumference,
         strokeDashoffset: offset,
         strokeLinecap: linecap,
@@ -151,12 +149,12 @@ const Progress = props => {
     }
 
     const gradientStartAttr = {
-        offset: gradient.start,
+        offset: 0,
         stopColor: gradient.startColor
     }
 
     const gradientStopAttr = {
-        offset: gradient.end,
+        offset: 100,
         stopColor: gradient.stopColor
     }
 
@@ -254,8 +252,8 @@ const Progress = props => {
 
 Progress.propTypes = {
     size: PropTypes.number,
-    strokeWidth: PropTypes.number,
-    strokeWidthBg: PropTypes.number,
+    borderWidth: PropTypes.number,
+    borderWidthBg: PropTypes.number,
     fillColor: PropTypes.string,
     emptyColor: PropTypes.string,
     background: PropTypes.string,
@@ -266,8 +264,6 @@ Progress.propTypes = {
     transition: PropTypes.number,
     gradient: PropTypes.shape({
         angle: PropTypes.number,
-        start: PropTypes.number,
-        end: PropTypes.number,
         startColor: PropTypes.string,
         stopColor: PropTypes.string,
     }),
