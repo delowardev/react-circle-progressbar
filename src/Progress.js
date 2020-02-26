@@ -20,6 +20,7 @@ const defaultProps = {
     className: '',
     percent: 55,
     linecap: 'round',
+    transition: 200,
     isGradient: false,
     gradient: {
         angle: 0,
@@ -70,7 +71,8 @@ const Progress = props => {
         isShadow,
         linecap,
         isBgShadow,
-        bgShadow
+        bgShadow,
+        transition
     } = props;
 
     const size = parseInt(props.size);
@@ -133,7 +135,8 @@ const Progress = props => {
         strokeDashoffset: offset,
         strokeLinecap: linecap,
         stroke: isGradient ? `url(#${uid1})` : fillColor,
-        ...(isShadow && { filter: `url(#${uid2})` })
+        ...(isShadow && { filter: `url(#${uid2})` }),
+        ...(transition && {style: { transition: `stroke-dashoffset ${transition}ms` }})
     };
 
     // gradient
@@ -209,15 +212,15 @@ const Progress = props => {
                                 <feDropShadow {...shadowAttr} />
                             </filter>
                         ) : (
-                            <filter  {...shadowAttr}>
-                                <feOffset dx={feShadowAttr.dx} dy={feShadowAttr.dy} />
-                                <feGaussianBlur stdDeviation={feShadowAttr.stdDeviation} />
-                                <feComposite operator="out" in="SourceGraphic" result="inverse" />
-                                <feFlood flood-color={feShadowAttr.floodColor} flood-opacity={feShadowAttr.floodOpacity} result="color" />
-                                <feComposite operator="in" in="color" in2="inverse" result="shadow" />
-                                <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                            </filter>
-                        )
+                                <filter  {...shadowAttr}>
+                                    <feOffset dx={feShadowAttr.dx} dy={feShadowAttr.dy} />
+                                    <feGaussianBlur stdDeviation={feShadowAttr.stdDeviation} />
+                                    <feComposite operator="out" in="SourceGraphic" result="inverse" />
+                                    <feFlood flood-color={feShadowAttr.floodColor} flood-opacity={feShadowAttr.floodOpacity} result="color" />
+                                    <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+                                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+                                </filter>
+                            )
                     )
                 }
 
@@ -229,15 +232,15 @@ const Progress = props => {
                                 <feDropShadow {...feBgShadowAttr} />
                             </filter>
                         ) : (
-                            <filter {...bgShadowAttr}>
-                                <feOffset dx={feBgShadowAttr.dx} dy={feBgShadowAttr.dy} />
-                                <feGaussianBlur stdDeviation={feBgShadowAttr.stdDeviation} />
-                                <feComposite operator="out" in="SourceGraphic" result="inverse" />
-                                <feFlood floodColor={feBgShadowAttr.floodColor} floodOpacity={feBgShadowAttr.floodOpacity} result="color" />
-                                <feComposite operator="in" in="color" in2="inverse" result="shadow" />
-                                <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                            </filter>
-                        )
+                                <filter {...bgShadowAttr}>
+                                    <feOffset dx={feBgShadowAttr.dx} dy={feBgShadowAttr.dy} />
+                                    <feGaussianBlur stdDeviation={feBgShadowAttr.stdDeviation} />
+                                    <feComposite operator="out" in="SourceGraphic" result="inverse" />
+                                    <feFlood floodColor={feBgShadowAttr.floodColor} floodOpacity={feBgShadowAttr.floodOpacity} result="color" />
+                                    <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+                                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+                                </filter>
+                            )
                     )
                 }
 
@@ -260,6 +263,7 @@ Progress.propTypes = {
     percent: PropTypes.number,
     linecap: PropTypes.string,
     isGradient: PropTypes.bool,
+    transition: PropTypes.number,
     gradient: PropTypes.shape({
         angle: PropTypes.number,
         start: PropTypes.number,
