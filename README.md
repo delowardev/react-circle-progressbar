@@ -5,7 +5,7 @@
 
 Highly customizable & lightweight circular progressbar component, built with SVG and extensively customizable.
 
-> Package Size: 10kb
+> Package Size: 8.93kb
 
 ### Table of contents
 
