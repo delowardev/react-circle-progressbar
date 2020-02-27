@@ -70,7 +70,7 @@ import Progress from '@delowar/react-circle-progressbar';
     }}
     emptyColor="#f7f7f7" 
     borderWidth="6"
-    borderWidthBg="30" 
+    borderBgWidth="30" 
 />
 
 ```
@@ -83,7 +83,7 @@ Available Props, this package supports 30+ props
 | ------ | ------ | ------ | ------ | ------ |
 | size | Circle height & Width | `180` | Int | ∞ |
 | borderWidth | Circle Border width |  `15`  | Int | ∞ |
-| borderWidthBg | Circle Border Background width |  `15`  | Int | ∞ |
+| borderBgWidth | Circle Border Background width |  `15`  | Int | ∞ |
 | fillColor | Stroke Fill Color |  `#288feb`  | String | N/A |
 | emptyColor | Stroke (empty) BG Fill Color |  `#288feb`  | String | N/A |
 | background | Circle Background |  `none`  | String | N/A |
@@ -97,6 +97,7 @@ Available Props, this package supports 30+ props
 | shadow | Shadow Essential Values | [{...}](#propsshadow)  | Object | N/A |
 | isBgShadow | Enable Circle BG Shadow |  `false`  | Boolean | N/A |
 | bgShadow | Shadow Essential Values | [{...}](#propsbgshadow)  | Object | N/A |
+| viewport | Animate when element is in viewport |  `true`  | Boolean | N/A |
 
 #### Example:
 
@@ -188,7 +189,7 @@ Available Props, this package supports 30+ props
 const defaultProps = {
     size: 180,
     borderWidth: 15,
-    borderWidthBg: 15,
+    borderBgWidth: 15,
     fillColor: '#288feb',
     emptyColor: '#dddddd',
     background: 'none',
@@ -218,6 +219,7 @@ const defaultProps = {
         blur: 3,
         opacity: .4,
         color: '#000000'
-    }
+    },
+    viewport: true
 }
 ```

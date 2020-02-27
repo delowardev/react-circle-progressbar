@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 
+// generate unique id
 const uuid = (prefix = '', suffix = '') => {
     return (
         prefix +
@@ -10,17 +11,29 @@ const uuid = (prefix = '', suffix = '') => {
     )
 };
 
+// check element in viewport
+const isElementInViewport = el => {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+};
+
+// default props
 const defaultProps = {
     size: 180,
     borderWidth: 15,
-    borderWidthBg: 15,
+    borderBgWidth: 15,
     fillColor: '#288feb',
     emptyColor: '#dddddd',
     background: 'none',
     className: '',
     percent: 55,
     linecap: 'round',
-    transition: 200,
+    transition: 400,
     isGradient: false,
     gradient: {
         angle: 0,
@@ -44,15 +57,18 @@ const defaultProps = {
         blur: 3,
         opacity: .4,
         color: '#000000'
-    }
+    },
+    viewport: true
 };
 
-
+// Progress component
 const Progress = props => {
-    props = { ...defaultProps, ...props }
-    props.shadow = { ...props.shadow, ...defaultProps.shadow }
-    props.gradient = { ...defaultProps.gradient, ...props.gradient }
-    props.bgShadow = { ...defaultProps.bgShadow, ...props.bgShadow }
+    props = { ...defaultProps, ...props };
+    props.shadow = { ...props.shadow, ...defaultProps.shadow };
+    props.gradient = { ...defaultProps.gradient, ...props.gradient };
+    props.bgShadow = { ...defaultProps.bgShadow, ...props.bgShadow };
+
+    const elem = useRef();
 
     const uid1 = uuid('grd_');
     const uid2 = uuid('shd_');
@@ -71,29 +87,32 @@ const Progress = props => {
         isBgShadow,
         bgShadow,
         transition,
-        children
+        children,
+        viewport
     } = props;
 
     const size = parseInt(props.size);
     const percent = parseInt(props.percent);
-    const borderWidthBg = parseInt(props.borderWidthBg);
+    const borderBgWidth = parseInt(props.borderBgWidth);
     const borderWidth = parseInt(props.borderWidth);
 
 
-    let circleRadiusBg = (size - borderWidthBg) * .5;
+    let circleRadiusBg = (size - borderBgWidth) * .5;
     let circleRadiusFg = (size - borderWidth) * .5;
 
 
-    if (borderWidth > borderWidthBg) {
-        circleRadiusBg -= (borderWidth - borderWidthBg) * .5;
+    if (borderWidth > borderBgWidth) {
+        circleRadiusBg -= (borderWidth - borderBgWidth) * .5;
     }
 
-    if (borderWidthBg > borderWidth) {
-        circleRadiusFg -= (borderWidthBg - borderWidth) * .5;
+    if (borderBgWidth > borderWidth) {
+        circleRadiusFg -= (borderBgWidth - borderWidth) * .5;
     }
 
     const circumference = 2 * Math.PI * circleRadiusFg;
-    const offset = circumference - (circumference * percent / 100);
+    const dashOffset = circumference - (circumference * percent / 100);
+
+    const [offset, setOffset] = useState(circumference);
 
     // wrap attributes
     let wrapStyle = {
@@ -104,7 +123,8 @@ const Progress = props => {
 
     const wrapAttr = {
         className: `circle-progress-wrap ${className}`,
-        style: wrapStyle
+        style: wrapStyle,
+        ref: elem
     };
 
     // child attributes
@@ -140,7 +160,7 @@ const Progress = props => {
         cy: size,
         r: circleRadiusBg,
         stroke: emptyColor,
-        strokeWidth: borderWidthBg,
+        strokeWidth: borderBgWidth,
         fill: background,
         ...(isBgShadow && { filter: `url(#${uid3})` })
     };
@@ -157,7 +177,7 @@ const Progress = props => {
         strokeLinecap: linecap,
         stroke: isGradient ? `url(#${uid1})` : fillColor,
         ...(isShadow && { filter: `url(#${uid2})` }),
-        ...(transition && {style: { transition: `stroke-dashoffset ${transition}ms` }})
+        ...(transition && { style: { transition: `stroke-dashoffset ${transition}ms` } })
     };
 
     // gradient
@@ -169,17 +189,17 @@ const Progress = props => {
         x2: '0%',
         y2: '100%',
         gradientTransform: `rotate(${gradient.angle}, .5, .5)`
-    }
+    };
 
     const gradientStartAttr = {
         offset: 0,
         stopColor: gradient.startColor
-    }
+    };
 
     const gradientStopAttr = {
         offset: 100,
         stopColor: gradient.stopColor
-    }
+    };
 
     // shadow
     const shadowAttr = {
@@ -188,7 +208,7 @@ const Progress = props => {
         height: '500%',
         x: '-250%',
         y: '-250%'
-    }
+    };
 
     const feShadowAttr = {
         dx: shadow.vertical * -1,
@@ -196,7 +216,7 @@ const Progress = props => {
         stdDeviation: shadow.blur,
         floodColor: shadow.color,
         floodOpacity: shadow.opacity
-    }
+    };
 
     const bgShadowAttr = {
         id: uid3,
@@ -204,14 +224,32 @@ const Progress = props => {
         height: '500%',
         x: '-250%',
         y: '-250%'
-    }
+    };
+
     const feBgShadowAttr = {
         dx: bgShadow.vertical * -1,
         dy: bgShadow.horizontal,
         stdDeviation: bgShadow.blur,
         floodColor: bgShadow.color,
         floodOpacity: bgShadow.opacity
-    }
+    };
+
+    const placeOffset = () => {
+        if (viewport){
+            if (isElementInViewport(elem.current) && typeof elem.current !== 'undefined') {
+                window.removeEventListener('scroll', placeOffset);
+                setOffset(dashOffset);
+            }
+        } else {
+            setOffset(dashOffset);
+        }
+    };
+
+    viewport && window.addEventListener('scroll', placeOffset);
+
+    useEffect(() => {
+        placeOffset(elem.current)
+    }, []);
 
     return (
         <div {...wrapAttr}>
@@ -232,15 +270,15 @@ const Progress = props => {
                                 <feDropShadow {...shadowAttr} />
                             </filter>
                         ) : (
-                                <filter  {...shadowAttr}>
-                                    <feOffset dx={feShadowAttr.dx} dy={feShadowAttr.dy} />
-                                    <feGaussianBlur stdDeviation={feShadowAttr.stdDeviation} />
-                                    <feComposite operator="out" in="SourceGraphic" result="inverse" />
-                                    <feFlood flood-color={feShadowAttr.floodColor} flood-opacity={feShadowAttr.floodOpacity} result="color" />
-                                    <feComposite operator="in" in="color" in2="inverse" result="shadow" />
-                                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                                </filter>
-                            )
+                            <filter  {...shadowAttr}>
+                                <feOffset dx={feShadowAttr.dx} dy={feShadowAttr.dy} />
+                                <feGaussianBlur stdDeviation={feShadowAttr.stdDeviation} />
+                                <feComposite operator="out" in="SourceGraphic" result="inverse" />
+                                <feFlood flood-color={feShadowAttr.floodColor} flood-opacity={feShadowAttr.floodOpacity} result="color" />
+                                <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+                                <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+                            </filter>
+                        )
                     )
                 }
 
@@ -252,15 +290,15 @@ const Progress = props => {
                                 <feDropShadow {...feBgShadowAttr} />
                             </filter>
                         ) : (
-                                <filter {...bgShadowAttr}>
-                                    <feOffset dx={feBgShadowAttr.dx} dy={feBgShadowAttr.dy} />
-                                    <feGaussianBlur stdDeviation={feBgShadowAttr.stdDeviation} />
-                                    <feComposite operator="out" in="SourceGraphic" result="inverse" />
-                                    <feFlood floodColor={feBgShadowAttr.floodColor} floodOpacity={feBgShadowAttr.floodOpacity} result="color" />
-                                    <feComposite operator="in" in="color" in2="inverse" result="shadow" />
-                                    <feComposite operator="over" in="shadow" in2="SourceGraphic" />
-                                </filter>
-                            )
+                            <filter {...bgShadowAttr}>
+                                <feOffset dx={feBgShadowAttr.dx} dy={feBgShadowAttr.dy} />
+                                <feGaussianBlur stdDeviation={feBgShadowAttr.stdDeviation} />
+                                <feComposite operator="out" in="SourceGraphic" result="inverse" />
+                                <feFlood floodColor={feBgShadowAttr.floodColor} floodOpacity={feBgShadowAttr.floodOpacity} result="color" />
+                                <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+                                <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+                            </filter>
+                        )
                     )
                 }
 
@@ -274,11 +312,11 @@ const Progress = props => {
         </div>
     )
 }
-
+// check proptypes
 Progress.propTypes = {
     size: PropTypes.number,
     borderWidth: PropTypes.number,
-    borderWidthBg: PropTypes.number,
+    borderBgWidth: PropTypes.number,
     fillColor: PropTypes.string,
     emptyColor: PropTypes.string,
     background: PropTypes.string,
@@ -309,7 +347,8 @@ Progress.propTypes = {
         blur: PropTypes.number,
         opacity: PropTypes.number,
         color: PropTypes.string
-    })
+    }),
+    viewport: PropTypes.bool
 }
 
 export default Progress
