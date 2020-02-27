@@ -58,7 +58,8 @@ const defaultProps = {
         opacity: .4,
         color: '#000000'
     },
-    viewport: true
+    viewport: true,
+    onViewport: undefined
 };
 
 // Progress component
@@ -88,7 +89,8 @@ const Progress = props => {
         bgShadow,
         transition,
         children,
-        viewport
+        viewport,
+        onViewport
     } = props;
 
     const size = parseInt(props.size);
@@ -235,17 +237,14 @@ const Progress = props => {
     };
 
     const placeOffset = () => {
-        if (viewport){
-            if (isElementInViewport(elem.current) && typeof elem.current !== 'undefined') {
-                window.removeEventListener('scroll', placeOffset);
-                setOffset(dashOffset);
-            }
-        } else {
-            setOffset(dashOffset);
+        window.addEventListener('scroll', placeOffset);
+        !viewport && setOffset(dashOffset);
+        if (isElementInViewport(elem.current) && typeof elem.current !== 'undefined') {
+            window.removeEventListener('scroll', placeOffset);
+            onViewport && onViewport(elem.current)
+            viewport && setOffset(dashOffset);
         }
     };
-
-    viewport && window.addEventListener('scroll', placeOffset);
 
     useEffect(() => {
         placeOffset(elem.current)
@@ -348,7 +347,8 @@ Progress.propTypes = {
         opacity: PropTypes.number,
         color: PropTypes.string
     }),
-    viewport: PropTypes.bool
+    viewport: PropTypes.bool,
+    onViewport: PropTypes.func
 }
 
 export default Progress
