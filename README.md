@@ -99,7 +99,7 @@ Available Props, this package supports 30+ props
 | isBgShadow | Enable Circle BG Shadow |  `false`  | Boolean | N/A |
 | bgShadow | Shadow Essential Values | [{...}](#propsbgshadow)  | Object | N/A |
 | viewport | Animate when element is in viewport |  `true`  | Boolean | N/A |
-| onViewport | Callback function to detect viewport |  `undefined`  | Function | N/A |
+| onViewport | Callback function to detect viewport |  `null`  | Function | N/A |
 
 #### Example:
 
