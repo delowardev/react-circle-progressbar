@@ -2,9 +2,8 @@
 
 ![React Circle Progressbar](https://i.imgur.com/AAWDdsQl.jpg)
 
-Highly customizable & lightweight circular progressbar component, built with SVG and extensively customizable.
+Highly customizable & lightweight circular progressbar component for React, built with SVG and extensively customizable.
 
-> Package Size: 8.93kb
 
 ### Table of contents
 
@@ -20,7 +19,7 @@ Highly customizable & lightweight circular progressbar component, built with SVG
 
 Install with npm:
 ```
-npm install --save @delowar/react-circle-progressbar
+npm i @delowar/react-circle-progressbar
 ```
 
 or yarn:
