@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/Progress.js',
     output: {
         path: path.resolve('lib'),
-        filename: 'Progress.js',
+        filename: 'progress.build.js',
         library: 'Progress',
         libraryTarget: 'umd',
         libraryExport: 'default',
